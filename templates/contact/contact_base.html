@@ -1,0 +1,57 @@
+{% extends 'global/base.html' %}
+{% load i18n bootstrap3 staticfiles %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block content %}
+
+    <div class="container organize">
+        <section id="resources">
+            <div class="text-center">
+                <h2 id="contact">{% trans 'Contact Us' %}</h2>
+            </div>
+            <div class = "row">
+                <div class="col-md-6">
+                    {% include 'contact/contact_panel.html' %}
+                </div>
+                <div class="col-md-6">
+                    <div class="panel" id="google_map"></div>
+                    <script type="text/javascript">initMap();</script>
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}
+{% block extra_js %}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWTyRrxdxzvJLWo8ycCPrBys5TQnKMw2U"></script>
+<script type="text/javascript" src="{% static 'js/markerwithlabel.js' %}"></script>
+<script>
+    var map;
+    var myLatLng = {lat: parseFloat('28.2157487'), lng: parseFloat('76.8035762')};
+    var markerIcon = {
+        url: 'http://image.flaticon.com/icons/svg/252/252025.svg',
+        scaledSize: new google.maps.Size(80, 80),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(32,65),
+        labelOrigin: new google.maps.Point(40,33)
+    };
+    var markerLabel = 'NCR Indane';
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('google_map'), {
+            center: myLatLng,
+            zoom: 16
+        });
+        var marker = new MarkerWithLabel({
+            map: map,
+            animation: google.maps.Animation.DROP,
+            position: myLatLng,
+            icon: markerIcon,
+            labelContent: markerLabel,
+            labelAnchor: new google.maps.Point(42, 12),
+            labelClass: "g-maps-marker",
+            labelInBackground: false
+        });
+    }
+</script>
+{% endblock %}

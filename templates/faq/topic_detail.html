@@ -1,0 +1,40 @@
+{% extends "global/base.html" %}
+
+{% block title %}{{ block.super }}: {{ topic }}{% endblock %}
+
+{% block content %}
+<div class="container organize">
+    <section id="resources">
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <h2>Frequently Asked Questions: {{ topic }}</h2>
+            </div>
+        </div>
+        <div>
+            {% for question in questions %}
+                <div class="panel" style="padding: 10px 10px;">
+                    <div>
+                        <h2 style="display: inline-block; color:black;">{{ question.text }}</h2>
+                        <button style="display: inline-block; vertical-align: middle; margin: 0px 20px 15px;" type="button" class="btn-default btn-xs" onclick="myFunction('{{ question.id }}', this.id)" id="b_'{{ question.id }}'">Show Details</button>
+                    </div>
+                    <div id="{{ question.id }}" style="display: none; color: black;">
+                        {{ question.answer }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+<script>
+function myFunction(question_id, button_id) {
+    var x = document.getElementById(question_id);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        document.getElementById(button_id).innerHTML = "Hide Details";
+    } else {
+        x.style.display = "none";
+        document.getElementById(button_id).innerHTML = "Show Details";
+    }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'global/base.html' %}
+{% load i18n bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load staticfiles %}
+
+{% block content %}
+
+    <div class="container organize">
+        <section id="resources">
+            <div class="text-center">
+                <h2 id="enquiry">{% trans 'Enquiry Form' %}</h2>
+            </div>
+            <div class = "row">
+                <div class="col-md-6">
+                    <div>
+                        <form method="post" class="form" id="enquiry-form">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+                            {% buttons %}
+                                <button type="submit" class="btn btn-primary">{% trans 'Submit' %}</button>
+                            {% endbuttons %}
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    {% include 'contact/contact_panel.html' %}
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}

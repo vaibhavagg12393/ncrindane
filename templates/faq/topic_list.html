@@ -1,0 +1,22 @@
+{% extends "global/base.html" %}
+
+{% block title %}{{ block.super }}: Topics{% endblock %}
+
+{% block content %}
+<div class="container organize">
+    <section id="resources">
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <h2 id="faq">Frequently Asked Questions</h2>
+            </div>
+        </div>
+        <div class="panel">
+            <ul>
+                {% for topic in topics %}
+                    <li><h3><a href="{{ topic.get_absolute_url }}">FAQ: {{ topic }}</a></h3></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+</div>
+{% endblock %}
