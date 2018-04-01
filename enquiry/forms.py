@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm, Textarea
 from django.utils.translation import ugettext as _
 
 from models import Enquiry
@@ -20,7 +20,7 @@ class EnquiryForm(ModelForm):
             'query': _('Query')
         }
         widgets = {
-            'query': TextInput(attrs={'placeholder': _('Enter your query here.')})
+            'query': Textarea(attrs={'placeholder': _('Enter your query here.')})
         }
     
     def clean_data(self):

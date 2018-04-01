@@ -16,6 +16,7 @@ import os
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 APP_DIR = os.path.abspath(os.path.dirname(__file__))
+MEDIA_BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,6 +29,8 @@ SECRET_KEY = 'lv-wj!w^gpfq((a+c#!24ksyuyrn%s*jr)euy21-g^@_*kq=2w'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+SITE_ID = 1
 
 
 # Application definition
@@ -43,11 +46,13 @@ INSTALLED_APPS = [
     'compressor',
     'bootstrap3',
     'about',
-    'gallery',
     'home',
     'enquiry',
     'complaint',
     'faq',
+    'app',
+    'material',
+    'material.admin',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +133,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_REDIRECT_URL = '/admin/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -142,9 +148,9 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-
-MEDIA_URL = '/uploads/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/media/'
+#MEDIA_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['media/']))
+MEDIA_ROOT = MEDIA_BASE_DIR + '/media/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
@@ -158,3 +164,12 @@ LANGUAGE_CODE = 'en-US'
 USE_I18N = True
 
 USE_L10N = True
+
+DEFAULT_FROM_EMAIL = 'shwetakishadi@gmail.com'
+SERVER_EMAIL = 'shwetakishadi@gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'shwetakishadi@gmail.com'
+EMAIL_HOST_PASSWORD = '10dec2017'
+COMPLAINT_TO_EMAIL = 'vaibhavagg12393@gmail.com'

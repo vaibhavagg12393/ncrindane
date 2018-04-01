@@ -1,0 +1,158 @@
+﻿/* Custom fonts */
+@font-face {
+  font-family: Ubuntu;
+  src: local("Ubuntu"),
+       local("Ubuntu-Regular"),
+       url(Ubuntu-Regular.ttf);
+}
+
+@font-face {
+  font-family: Ubuntu-Italic;
+  src: local("Ubuntu-Italic"),
+       url(Ubuntu-Italic.ttf);
+}
+
+/* Tag overrrides */
+body, h1, h2, h3, h4, h5{
+    font-family: 'Ubuntu', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+    font-size: 3.0rem;
+}
+
+h2{
+    font-size: 2.0rem;color:#37474f;
+    margin-bottom: 0px;
+}
+
+h3{
+    font-size: 1.5rem;
+}
+
+strong {
+    font-size: 1.1em;
+    color: darkblue;
+}
+
+/* Materializecss overrrides */
+.carousel-slider {
+    height: 400px !important;
+}
+
+/* Custom styles overrrides */
+.dpg-opaque {
+  /* Theoretically for IE 8 & 9 (more valid) */
+  /* ...but not required as filter works too */
+  /* should come BEFORE filter */
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+
+  /* This works in IE 8 & 9 too */
+  /* ... but also 5, 6, 7 */
+  filter: alpha(opacity=60);
+  
+  /* Modern Browsers */
+  opacity: 0.6;
+}
+
+.dpg-italic {
+  font-style: italic;
+}
+
+.dpg-icon {
+    max-width:4rem;
+    max-height:4rem;
+}
+
+.dpg-album-card-image {
+    width:300px;
+    height:225px;
+}
+
+.dpg-album-image {
+    width:300px;
+    height:225px;
+    margin: 10px;
+}
+
+.dpg-album-card {
+    max-width:300px;
+}
+
+.row-gallery {
+    display: -ms-flexbox; /* IE10 */
+    display: inline-block;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column-gallery {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+}
+
+.column-gallery img {
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column-gallery {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+.row .col {
+    float: left;
+    box-sizing: border-box;
+    padding: 0 0.75rem;
+    min-height: 1px;
+    margin-bottom: 20px;
+}
+
+.card .card-action {
+    position: relative;
+    background-color: WHITE;
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 20px;
+}
+
+.card .card-content {
+    padding: 20px;
+    border-radius: 0 0 2px 2px;
+    background-color: white;
+}
+.card .card-content .card-title {
+    line-height: 48px;
+}
+
+.card .card-title {
+    font-size: 24px;
+    font-weight: 300;
+}
+.card .card-content p {
+    margin: 0;
+    color: inherit;
+}
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+    color: #ffab40;
+    margin-right: 20px;
+    transition: color .3s ease;
+    text-transform: uppercase;
+}

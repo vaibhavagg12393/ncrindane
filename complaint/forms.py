@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm, Textarea
 from django.utils.translation import ugettext as _
 
 from complaint.models import Complaint
@@ -22,7 +22,7 @@ class ComplaintForm(ModelForm):
             'complaint_detail': _('Complaint Matter')
         }
         widgets = {
-            'complaint_detail': TextInput(attrs={'placeholder': _('Enter your complaint here.')})
+            'complaint_detail': Textarea(attrs={'placeholder': _('Enter your complaint here.')})
         }
     
     def clean_data(self):
