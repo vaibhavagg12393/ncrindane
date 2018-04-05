@@ -879,6 +879,36 @@ span.highlighted-number {
 }
 /*
 --------------------
+        FAQ
+--------------------
+*/
+.organize .faq h2 {
+  color: black;
+}
+
+.organize .faq p {
+  margin: 10px;
+}
+
+.organize .faq ul li {
+  text-decoration: underline;
+  list-style-type: disc;
+}
+
+.organize .faq hr {
+  border-top: 1px solid #000000;
+}
+
+.organize .faq table {
+  background-color: white;
+}
+
+.organize .faq table .table-hover .table-responsive .table-bordered thead th {
+  text-align: center;
+}
+
+/*
+--------------------
     Support us
 --------------------
 */

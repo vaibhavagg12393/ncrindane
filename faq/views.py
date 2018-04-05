@@ -27,7 +27,7 @@ class TopicDetail(DetailView):
     def get_context_data(self, **kwargs):
         # Include a list of questions this user has access to. If the user is
         # logged in, this includes protected questions. Otherwise, not.
-        query_set = self.object.questions.active()
+        query_set = self.object.questions.filter(topic__slug=self.kwargs.get('slug'))
         if self.request.user.is_anonymous():
             query_set = query_set.exclude(protected=True)
 

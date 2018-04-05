@@ -7,18 +7,19 @@
     <section id="resources">
         <div class="row clearfix">
             <div class="col-md-12">
-                <h2>Frequently Asked Questions: {{ topic }}</h2>
+                <h2><a href="{% url 'faq:faq_topic_list' %}#faq">FAQs:</a> {{ topic }}</h2>
             </div>
         </div>
         <div>
             {% for question in questions %}
-                <div class="panel" style="padding: 10px 10px;">
+                <div class="panel faq" style="padding: 10px 10px;">
                     <div>
                         <h2 style="display: inline-block; color:black;">{{ question.text }}</h2>
                         <button style="display: inline-block; vertical-align: middle; margin: 0px 20px 15px;" type="button" class="btn-default btn-xs" onclick="myFunction('{{ question.id }}', this.id)" id="b_'{{ question.id }}'">Show Details</button>
                     </div>
                     <div id="{{ question.id }}" style="display: none; color: black;">
-                        {{ question.answer }}
+                        <hr></hr>
+                        {% spaceless %}{{ question.answer|safe }}{% endspaceless %}
                     </div>
                 </div>
             {% endfor %}
