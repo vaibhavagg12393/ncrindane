@@ -83,7 +83,7 @@ slacker==0.9.60
 suit==2.0.2
 typing==3.6.4
 uritemplate==3.0.0
-urllib3==1.22
+urllib3==1.26.5
 vcrpy==1.11.1
 whitenoise==3.3.1
 wrapt==1.10.11
